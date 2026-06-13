@@ -3,7 +3,7 @@
 A confidence-gated LLM support agent that answers questions about Ramco's enterprise software on Telegram. Incoming messages are classified by intent, answered from a curated knowledge base using Claude, scored by a small neural network, and either auto-sent (high confidence) or queued for human review (low confidence).
 
 **Live bot:** `@ramco_assist_bot`  
-**Review dashboard:** https://caring-gentleness-production-c3e7.up.railway.app  
+**Review dashboard:** https://telegram-auto-reply-bot.up.railway.app/  
 **Deployed on:** Railway (poller + dashboard + Postgres)
 
 ---
