@@ -1,0 +1,33 @@
+# Railway deployment manifest.
+#
+# One Docker image, three roles (poller | dashboard | web) off a single repo.
+# Each Railway service sets SERVICE_ROLE to pick its behaviour (entrypoint.sh
+# dispatches on it). All three share state through DATABASE_URL (Postgres).
+#
+# IMPORTANT — set these on every service via the Variables tab:
+#   SERVICE_ROLE        poller | dashboard | web
+#   TELEGRAM_BOT_TOKEN  from @BotFather
+#   ANTHROPIC_API_KEY   from console.anthropic.com
+#   DATABASE_URL        ${{Postgres.DATABASE_URL}}
+#   AUTO_SEND_ENABLED   false
+#   CONFIDENCE_THRESHOLD 0.90
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+# startCommand must be set here (not just Dockerfile CMD) because Railway caches
+# a service-level start command from earlier deploys and only a value in
+# railway.toml reliably overrides it.
+startCommand = "sh /app/entrypoint.sh"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 5
+
+# NOTE: healthcheckPath is NOT set here because this railway.toml is shared by
+# all three service roles (web, dashboard, poller). The poller has no HTTP
+# server, so a healthcheck in the shared config causes it to fail. Instead,
+# set healthcheckPath per-service in the Railway dashboard:
+#   dashboard -> /_stcore/health (Streamlit built-in endpoint)
+#   web       -> /health (or your FastAPI health endpoint)
+#   poller    -> (none — background worker, no HTTP)
