@@ -148,6 +148,28 @@ Run `python -m scripts.evaluate` to reproduce.
 
 ---
 
+## Screenshots
+
+### Telegram Bot in Action
+
+The bot answers a Ramco Aviation MRO question with a grounded, cited reply, handles a casual follow-up, and stays in character as a 24/7 support assistant.
+
+![Telegram chat — Ramco Aviation MRO question answered with citations](screenshots/Bot-chat.png)
+
+![Telegram chat — casual follow-up handled in character](screenshots/Bot_chat.png)
+
+### Human-Review Dashboard
+
+The Streamlit review queue shows each drafted reply with its intent, confidence score, and the full customer thread — one click to approve/edit and send via Telegram.
+
+![Review dashboard — queue overview with confidence scores](screenshots/review-dashboard.png)
+
+![Review dashboard — drafted reply with confidence badge and customer thread](screenshots/Review_dash.png)
+
+![Review dashboard — pending review draft with status counters](screenshots/Review-dash.png)
+
+---
+
 ## Notes
 
 - The Ramco corporate network blocks `api.telegram.org` — the live bot runs on Railway (outside the firewall); the build/test loop uses `scripts/smoke_pipeline` which only calls the Anthropic API (reachable locally)
