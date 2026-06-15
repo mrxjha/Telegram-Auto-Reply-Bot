@@ -1,6 +1,6 @@
 # Telegram Auto-Reply Bot — Ramco Products
 
-A confidence-gated LLM support agent that answers questions about Ramco's enterprise software on Telegram. Incoming messages are classified by intent, answered from a curated knowledge base using Claude, scored by a small neural network, and either auto-sent (high confidence) or queued for human review (low confidence).
+A confidence-gated LLM support agent that answers questions about Ramco's Enterprise Software on Telegram. Incoming messages are classified by intent, answered from a curated knowledge base using Claude, scored by a small Neural Network, and either auto-sent (high confidence) or queued for human review (low confidence).
 
 **Live bot:** `@ramco_assist_bot`  
 **Review dashboard:** https://telegram-auto-reply-bot.up.railway.app/  
@@ -38,7 +38,7 @@ The Telegram connector (`tg/`) is the only platform-specific module — the rest
 
 ---
 
-## Key Features
+## Key Features:
 
 - **Zero pricing hallucinations** — pricing is recorded as "not published publicly" in the wiki, so the correct deflection IS the grounded answer
 - **Cheap router / quality drafter split** — Haiku for intent (~$0.0006/reply), Sonnet for drafting (~$0.0093/reply), MLP for confidence scoring (free)
@@ -49,7 +49,7 @@ The Telegram connector (`tg/`) is the only platform-specific module — the rest
 
 ---
 
-## Project Structure
+## Project Structure:
 
 ```
 tg/                   Telegram Bot API connector (raw httpx, named tg/ not telegram/)
@@ -104,7 +104,7 @@ python -m agent.poller
 
 ---
 
-## Environment Variables
+## Environment Variables:
 
 | Variable | Default | Description |
 |---|---|---|
@@ -121,7 +121,7 @@ python -m agent.poller
 
 ---
 
-## Railway Deployment
+## Railway Deployment:
 
 Three services share one Docker image, distinguished by `SERVICE_ROLE`:
 
@@ -135,7 +135,7 @@ Set `healthcheckPath=/_stcore/health` and `healthcheckTimeout=120` **per-service
 
 ---
 
-## Performance (measured on 10-query balanced eval set)
+## Performance (measured on 10-query balanced eval set):
 
 | Metric | Result |
 |---|---|
@@ -148,9 +148,9 @@ Run `python -m scripts.evaluate` to reproduce.
 
 ---
 
-## Screenshots
+## Screenshots:
 
-### Telegram Bot in Action
+### Telegram Bot in Action:
 
 The bot answers a Ramco Aviation MRO question with a grounded, cited reply, handles a casual follow-up, and stays in character as a 24/7 support assistant.
 
@@ -158,7 +158,7 @@ The bot answers a Ramco Aviation MRO question with a grounded, cited reply, hand
 
 ![Telegram chat — casual follow-up handled in character](screenshots/Bot_chat.png)
 
-### Human-Review Dashboard
+### Human-Review Dashboard:
 
 The Streamlit review queue shows each drafted reply with its intent, confidence score, and the full customer thread — one click to approve/edit and send via Telegram.
 
