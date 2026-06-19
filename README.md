@@ -38,7 +38,7 @@ The Telegram connector (`tg/`) is the only platform-specific module — the rest
 
 ---
 
-## Key Features:
+## Key Features:                                 
 
 - **Zero pricing hallucinations** — pricing is recorded as "not published publicly" in the wiki, so the correct deflection IS the grounded answer
 - **Cheap router / quality drafter split** — Haiku for intent (~$0.0006/reply), Sonnet for drafting (~$0.0093/reply), MLP for confidence scoring (free)
@@ -49,7 +49,7 @@ The Telegram connector (`tg/`) is the only platform-specific module — the rest
 
 ---
 
-## Project Structure:
+## Project Structure:                                
 
 ```
 tg/                   Telegram Bot API connector (raw httpx, named tg/ not telegram/)
@@ -70,9 +70,9 @@ railway.toml          Railway build/deploy config
 
 ---
 
-## Quickstart (local)
+## Quickstart (local)                           
 
-```bash
+```bash                        
 # 1. Clone and create venv
 git clone https://github.com/mrxjha/Telegram-Auto-Reply-Bot.git
 cd Telegram-Auto-Reply-Bot
@@ -104,11 +104,11 @@ python -m agent.poller
 
 ---
 
-## Environment Variables:
+## Environment Variables:                               
 
-| Variable | Default | Description |
+| Variable | Default | Description |                             
 |---|---|---|
-| `ANTHROPIC_API_KEY` | — | Required. Anthropic API key |
+| `ANTHROPIC_API_KEY` | — | Required. Anthropic API key |            
 | `TELEGRAM_BOT_TOKEN` | — | Required. Token from @BotFather |
 | `AUTO_SEND_ENABLED` | `false` | Set `true` to enable auto-send path |
 | `CONFIDENCE_THRESHOLD` | `0.90` | MLP score cutoff for auto-send |
@@ -146,7 +146,9 @@ Set `healthcheckPath=/_stcore/health` and `healthcheckTimeout=120` **per-service
 
 Run `python -m scripts.evaluate` to reproduce.
 
+
 ---
+
 
 ## Screenshots:
 
