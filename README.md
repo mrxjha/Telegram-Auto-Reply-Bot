@@ -160,7 +160,7 @@ The bot answers a Ramco Aviation MRO question with a grounded, cited reply, hand
 
 ![Telegram chat — casual follow-up handled in character](screenshots/Bot_chat.png)
 
-### Human-Review Dashboard:
+### Human-Review Dashboard:                                     
 
 The Streamlit review queue shows each drafted reply with its intent, confidence score, and the full customer thread — one click to approve/edit and send via Telegram.
 
